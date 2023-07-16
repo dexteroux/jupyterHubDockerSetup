@@ -1,0 +1,14 @@
+# Copyright (c) Jupyter Development Team.
+# Distributed under the terms of the Modified BSD License.
+FROM jupyter/base-notebook:latest
+
+# Install dockerspawner, nativeauthenticator
+# hadolint ignore=DL3013
+RUN python3 -m pip install --no-cache-dir -U pip 
+RUN python3 -m pip install --default-timeout=1000 --no-cache-dir -U numpy
+RUN python3 -m pip install --default-timeout=1000 --no-cache-dir -U pandas
+RUN python3 -m pip install --default-timeout=1000 --no-cache-dir -U scipy
+RUN python3 -m pip install --default-timeout=1000 --no-cache-dir -U tensorflow
+ 
+
+#CMD ["jupyterhub", "-f", "/srv/jupyterhub/jupyterhub_config.py"]
